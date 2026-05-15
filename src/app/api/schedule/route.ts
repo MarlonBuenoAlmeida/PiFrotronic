@@ -16,6 +16,9 @@ export async function POST(request: Request) {
         const date = new Date(`${dateStr}T00:00:00`);
         const needsTrailer = needsTrailerStr === 'sim';
 
+        const departureDateTime = new Date(`${date}T${departureTime}:00`);
+        const returnDateTime = returnTime ? new Date(`${date}T${returnTime}:00`) : null;
+
         const tripRequest = await prisma.tripRequest.create({
             data: {
                 fullName,
