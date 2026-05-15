@@ -1,0 +1,43 @@
+{
+  "name": "frotronic",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint"
+  },
+  "dependencies": {
+    "@libsql/client": "^0.17.2",
+    "@prisma/adapter-better-sqlite3": "^7.6.0",
+    "@prisma/adapter-libsql": "^7.7.0",
+    "@prisma/client": "^6.19.3",
+    "date-fns": "^4.1.0",
+    "dotenv": "^17.4.1",
+    "lucide-react": "^1.7.0",
+    "next": "16.2.1",
+    "react": "19.2.4",
+    "react-dom": "19.2.4"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4",
+    "@types/better-sqlite3": "^7.6.13",
+    "@types/node": "^20.19.37",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "babel-plugin-react-compiler": "1.0.0",
+    "eslint": "^9",
+    "eslint-config-next": "16.2.1",
+    "prisma": "^6.19.3",
+    "tailwindcss": "^4",
+    "tsx": "^4.21.0",
+    "typescript": "^5.9.3"
+  },
+  "description": "Este projeto tem como proposito a obtenção de nota da matéria Projeto Integrador II. ## IDEALIZADORES Neste projeto estão os seguintes alunos: Maéli, Maikon, Marlon, Julio e Veneranda. Estamos sendo orientados por: Ana Isabel da Fonseca. ## RESUMO Ao termos de ouvir a comunidade externa, decidimos atender a demanda de uma empresa de nome Chiptronic, da qual o problema principal é a falta de um sistema computadorizado de fácil acesso para o agendamento da frota automotiva. Será elaborado um sistema web para que ajude que ela realize facilmente, consulte e adapte os agendamentos. A entrega e acessibilidade será de forma gradual, respeitando etapas e feedbacks.",
+  "main": "index.js",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module"
+}

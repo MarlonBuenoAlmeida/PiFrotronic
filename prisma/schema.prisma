@@ -1,0 +1,81 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Get a free hosted Postgres database in seconds: `npx create-db`
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:C:/PIFrotronic/prisma/dev.db"
+}
+
+model Drivers{
+  id_driver String     @id @default(uuid())
+  name      String
+  note      String?
+  schedules Schedule[]
+}
+
+model Passenger {
+  id_passenger Int     @id @default(autoincrement())
+  name         String?
+}
+
+model Vehicle {
+  plate     String     @id
+  model     String
+  color     String?
+  requests   TripRequest[]
+  schedules Schedule[]
+}
+
+model User {
+  id_user     String     @id @default(uuid())
+  password    String
+  name        String
+  height      Int        @default(0)
+  createAt    DateTime   @default(now())
+  description String?
+  schedules   Schedule[]
+}
+
+model Schedule {
+  schedule_id  String    @id @default(uuid())
+  leave        DateTime
+  arrive       DateTime?
+  driver       Drivers   @relation(fields: [driver_id], references: [id_driver])
+  driver_id    String
+  vehicle      Vehicle   @relation(fields: [vehicle_id], references: [plate])
+  vehicle_id   String
+  available    Boolean   @default(true)
+  scheduler    User?     @relation(fields: [scheduler_id], references: [id_user])
+  scheduler_id String?
+}
+
+enum RequestStatus {
+  PENDING
+  APPROVED
+  DENIED
+}
+
+model TripRequest {
+  id            String        @id @default(uuid())
+  fullName      String
+  reason        String
+  type          String        
+  drivers       String
+  
+  departureDate DateTime      
+  returnDate    DateTime?     
+  
+  needsTrailer  Boolean
+  status        RequestStatus @default(PENDING)
+  decisionAt    DateTime?
+  createdAt     DateTime      @default(now())
+  
+  vehicle       Vehicle?      @relation(fields: [vehiclePlate], references: [plate])
+  vehiclePlate  String?
+}
